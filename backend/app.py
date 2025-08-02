@@ -24,19 +24,25 @@ def home():
 
 @app.route('/send-message', methods=['POST'])
 def send_message():
-    data = request.json
-    name = data.get('name')
-    email = data.get('email')
-    message = data.get('message')
+    try:
+        data = request.get_json()
+        name = data['name']
+        sender_email = data['email']
+        message_body = data['message']
 
-    msg = Message(
-        subject=f"New Portfolio Message from {name}",
-        sender=email,
-        recipients=[os.getenv("MAIL_USERNAME")],
-        body=f"Name: {name}\nEmail: {email}\n\n{message}"
-    )
-    mail.send(msg)
-    return jsonify({"success": True, "message": "Message sent successfully."})
+        msg = Message(subject=f"Portfolio Contact: {name}",
+                      sender=sender_email,
+                      recipients=[MAIL_USERNAME],
+                      body=message_body)
+
+        mail.send(msg)
+        print("✅ Email sent!")
+        return jsonify({'message': 'Message sent successfully!'}), 200
+
+    except Exception as e:
+        print("❌ Email failed:", e)
+        return jsonify({'error': str(e)}), 500
+
 
 @app.route('/download-resume', methods=['GET'])
 def download_resume():
