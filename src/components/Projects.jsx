@@ -42,6 +42,15 @@ const projects = [
     image: "/images/ecommerce.png",
     link: "https://github.com/Paridhi1920/E-Commerce-Website",
   },
+  {
+    title: "Portfolio Website",
+    description:
+      "A fully responsive and interactive personal portfolio website built using React and Tailwind CSS. It features smooth animations with Framer Motion, dark/light theme toggle, a contact form, and clean layout to showcase my skills, projects, and professional journey. The site is designed to reflect modern aesthetics and accessibility, with performance-focused architecture using Vite.",
+    tech: ["ReactJS", "Tailwind CSS", "Framer Motion", "Vite", "JavaScript"],
+    image: "/images/image.png",
+    link: "https://portfolio-website-mu-two-55.vercel.app/",
+  }
+
 ];
 
 const Projects = () => {
