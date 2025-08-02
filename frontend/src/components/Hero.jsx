@@ -4,12 +4,30 @@ import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import heroImage from '../assets/hero.jfif';
 
 const Hero = () => {
+  const handleResumeDownload = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/download-resume');
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'ParidhiJain_Resume.pdf';
+        a.click();
+        window.URL.revokeObjectURL(url);
+      } else {
+        console.error('Resume download failed');
+      }
+    } catch (err) {
+      console.error('Error:', err);
+    }
+  };
+
   return (
     <section
       id="home"
       className="min-h-screen flex flex-col md:flex-row items-center justify-center px-4 md:px-20 bg-gradient-to-br from-[#0F172A] to-[#1E293B] text-white transition"
     >
-      {/* Left Side - Text Content */}
       <div className="text-center md:text-left md:w-1/2 space-y-6">
         <motion.h1
           initial={{ opacity: 0, y: -30 }}
@@ -29,7 +47,6 @@ const Hero = () => {
           A passionate <span className="text-sky-400">Data Scientist</span> & ML Enthusiast, building elegant solutions with clean design and intelligent models.
         </motion.p>
 
-        {/* Social Icons */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -47,7 +64,6 @@ const Hero = () => {
           </a>
         </motion.div>
 
-        {/* CTA Buttons */}
         <div className="mt-8 flex flex-col md:flex-row gap-4 justify-center md:justify-start">
           <motion.a
             href="#projects"
@@ -58,20 +74,18 @@ const Hero = () => {
           >
             See My Work ↓
           </motion.a>
-          <motion.a
-            href="/ParidhiJain_Resume.pdf"
-            download
+          <motion.button
+            onClick={handleResumeDownload}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.1 }}
             className="bg-transparent border-2 border-sky-500 text-sky-400 hover:bg-sky-500 hover:text-white px-6 py-3 rounded-full font-semibold transition shadow-lg"
           >
             Download Resume
-          </motion.a>
+          </motion.button>
         </div>
       </div>
 
-      {/* Right Side - Hero Image */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
