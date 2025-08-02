@@ -18,6 +18,10 @@ app.config['MAIL_USERNAME'] = os.getenv("MAIL_USERNAME")
 app.config['MAIL_PASSWORD'] = os.getenv("MAIL_PASSWORD")
 mail = Mail(app)
 
+@app.route('/')
+def home():
+    return {"message": "Backend is running"}
+
 @app.route('/send-message', methods=['POST'])
 def send_message():
     data = request.json

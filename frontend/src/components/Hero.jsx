@@ -6,7 +6,7 @@ import heroImage from '../assets/hero.jfif';
 const Hero = () => {
   const handleResumeDownload = async () => {
     try {
-      const response = await fetch('https://portfolio-website-joro.onrender.com/download-resume');
+      const response = await fetch('https://portfolio-s9hg.onrender.com/download-resume');
       if (response.ok) {
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);
