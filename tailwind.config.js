@@ -7,9 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: 'var(--primary)',
-      accent: 'var(--accent)',       
-      },
+        primary: '#0F172A',
+        accent: '#38bdf8', // sky-400
+      }
     },
   },
   plugins: [],

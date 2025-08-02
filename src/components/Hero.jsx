@@ -1,84 +1,89 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import heroImage from '../assets/hero.jfif'; // 👈 make sure to add an image in /assets
 
 const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col items-center justify-center text-center px-4 bg-white dark:bg-primary transition"
+      className="min-h-screen flex flex-col md:flex-row items-center justify-center px-4 md:px-20 bg-gradient-to-br from-[#0F172A] to-[#1E293B] text-white transition"
     >
-      <motion.h1
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-4xl md:text-6xl font-extrabold text-primary dark:text-white"
-      >
-        Hey, I'm <span className="text-accent">Paridhi Jain</span>
-      </motion.h1>
+      {/* Left Side - Text Content */}
+      <div className="text-center md:text-left md:w-1/2 space-y-6">
+        <motion.h1
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl md:text-6xl font-extrabold leading-tight"
+        >
+          Hey, I'm <span className="text-sky-400">Paridhi Jain</span>
+        </motion.h1>
 
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-        className="mt-4 text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-xl"
-      >
-        I'm a passionate Data Scientist & ML Enthusiast crafting cool apps and elegant designs.
-      </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="text-lg md:text-xl text-gray-300 max-w-xl"
+        >
+          A passionate <span className="text-sky-400">Data Scientist</span> & ML Enthusiast, building elegant solutions with clean design and intelligent models.
+        </motion.p>
 
-      {/* Social Icons */}
+        {/* Social Icons */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.6 }}
+          className="flex justify-center md:justify-start space-x-6 text-2xl"
+        >
+          <a href="https://github.com/Paridhi1920" target="_blank" rel="noopener noreferrer" className="hover:text-sky-400">
+            <FaGithub />
+          </a>
+          <a href="https://linkedin.com/in/paridhi-jain309" target="_blank" rel="noopener noreferrer" className="hover:text-sky-400">
+            <FaLinkedin />
+          </a>
+          <a href="mailto:paridhij30@gmail.com" className="hover:text-sky-400">
+            <FaEnvelope />
+          </a>
+        </motion.div>
+
+        {/* CTA Buttons */}
+        <div className="mt-8 flex flex-col md:flex-row gap-4 justify-center md:justify-start">
+          <motion.a
+            href="#projects"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9 }}
+            className="bg-sky-500 hover:bg-sky-400 text-white px-6 py-3 rounded-full font-semibold transition shadow-lg"
+          >
+            See My Work ↓
+          </motion.a>
+          <motion.a
+            href="/ParidhiJain_Resume.pdf"
+            download
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.1 }}
+            className="bg-transparent border-2 border-sky-500 text-sky-400 hover:bg-sky-500 hover:text-white px-6 py-3 rounded-full font-semibold transition shadow-lg"
+          >
+            Download Resume
+          </motion.a>
+        </div>
+      </div>
+
+      {/* Right Side - Hero Image */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.6 }}
-        className="flex space-x-6 mt-8 text-2xl"
+        transition={{ delay: 0.7 }}
+        className="mt-10 md:mt-0 md:w-1/2 flex justify-center"
       >
-        <a
-          href="https://github.com/Paridhi1920"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-accent hover:text-sky-500 transition"
-        >
-          <FaGithub />
-        </a>
-        <a
-          href="https://linkedin.com/in/paridhi-jain309"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-accent hover:text-sky-500 transition"
-        >
-          <FaLinkedin />
-        </a>
-        <a
-          href="mailto:paridhij30@gmail.com"
-          className="text-accent hover:text-sky-500 transition"
-        >
-          <FaEnvelope />
-        </a>
+        <img
+          src={heroImage}
+          alt="Hero Illustration"
+          className="w-full max-w-sm md:max-w-md drop-shadow-xl"
+        />
       </motion.div>
-
-      {/* CTA Buttons */}
-      <div className="mt-10 flex flex-col md:flex-row gap-4">
-        <motion.a
-          href="#projects"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9 }}
-          className="inline-block bg-accent text-white px-6 py-3 rounded-full font-semibold hover:bg-sky-500 transition"
-        >
-          See My Work ↓
-        </motion.a>
-        <motion.a
-          href="/ParidhiJain_Resume.pdf"
-          download
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.1 }}
-          className="inline-block bg-accent text-white px-6 py-3 rounded-full font-semibold hover:bg-sky-500 transition"
-        >
-          Download Resume
-        </motion.a>
-      </div>
     </section>
   );
 };
