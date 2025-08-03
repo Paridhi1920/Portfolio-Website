@@ -7,7 +7,7 @@ const projects = [
     description:
       "ResTrack is an AI-powered resume analysis platform tailored for both job seekers and recruiters. It analyzes uploaded resumes to generate ATS scores, extract key skills, match relevant job roles, and dynamically generate customized cover letters using NLP techniques. Built with a modular Flask backend and an interactive React frontend, ResTrack uses Firebase for authentication.",
     tech: ["React", "Flask", "NLP", "Firebase", "HuggingFace"],
-    image: "/images/restrack.png",
+    image: "/images/resume.png",
     link: "https://github.com/Paridhi1920/Resume-Analyzer",
   },
   {
