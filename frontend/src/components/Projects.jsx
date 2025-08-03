@@ -35,7 +35,7 @@ const projects = [
     link: "https://whatsapp-chat-analyzer-jthbtwtznyx2fpnov4fsla.streamlit.app/",
   },
   {
-    title: "E-Commerce Website",
+    title: "QUickPick",
     description:
       "QuickPick is a responsive React-based e-commerce app featuring dynamic product pages, cart logic, and user authentication. Designed with reusable components and Tailwind CSS for smooth UI/UX.",
     tech: ["ReactJS", "Tailwind CSS", "Router-dom"],
@@ -45,8 +45,8 @@ const projects = [
   {
     title: "Portfolio Website",
     description:
-      "A fully responsive and interactive personal portfolio website built using React and Tailwind CSS. It features smooth animations with Framer Motion, dark/light theme toggle, a contact form, and clean layout to showcase my skills, projects, and professional journey. The site is designed to reflect modern aesthetics and accessibility, with performance-focused architecture using Vite.",
-    tech: ["ReactJS", "Tailwind CSS", "Framer Motion", "Vite", "JavaScript"],
+      "A fully responsive and interactive personal portfolio website built using React, Tailwind CSS, and Flask. It features smooth animations with Framer Motion, a dark/light theme toggle, a functional contact form powered by a Flask backend with email integration, and a secure resume download system with analytics tracking.",
+    tech: ["ReactJS", "Tailwind CSS", "Framer Motion", "Vite", "JavaScript", "Flask", "Python"],
     image: "/images/image.png",
     link: "https://portfolio-website-mu-two-55.vercel.app/",
   }
