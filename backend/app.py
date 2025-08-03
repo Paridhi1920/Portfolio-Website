@@ -32,7 +32,7 @@ def send_message():
 
         msg = Message(subject=f"Portfolio Contact: {name}",
                       sender=sender_email,
-                      recipients=[MAIL_USERNAME],
+                      recipients=[app.config['MAIL_USERNAME']],
                       body=message_body)
 
         mail.send(msg)
