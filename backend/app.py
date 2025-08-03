@@ -30,10 +30,12 @@ def send_message():
         sender_email = data['email']
         message_body = data['message']
 
-        msg = Message(subject=f"Portfolio Contact: {name}",
-                      sender=sender_email,
-                      recipients=[app.config['MAIL_USERNAME']],
-                      body=message_body)
+        msg = Message(
+            subject=f"Portfolio Contact: {name}",
+            sender=sender_email,
+            recipients=[app.config['MAIL_USERNAME']],
+            body=message_body
+        )
 
         mail.send(msg)
         print("✅ Email sent!")
@@ -43,14 +45,13 @@ def send_message():
         print("❌ Email failed:", e)
         return jsonify({'error': str(e)}), 500
 
-
 @app.route('/download-resume', methods=['GET'])
 def download_resume():
-    log_download(request.remote_addr)
+    ip = request.remote_addr
+    user_agent = request.headers.get('User-Agent')
+    log_download(ip, user_agent)
     return send_from_directory(directory='static', path='ParidhiJain_Resume.pdf', as_attachment=True)
 
 if __name__ == '__main__':
-    import os
-    port = int(os.environ.get('PORT', 5000)) 
+    port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
-
