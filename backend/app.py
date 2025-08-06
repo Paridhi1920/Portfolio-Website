@@ -32,9 +32,10 @@ def send_message():
 
         msg = Message(
             subject=f"Portfolio Contact: {name}",
-            sender=sender_email,
+            subject=f"New message from {name} ({sender_email})",
             recipients=[app.config['MAIL_USERNAME']],
-            body=message_body
+            body=f"Name: {name}\nEmail: {sender_email}\n\nMessage:\n{message_body}",
+            reply_to=sender_email  
         )
 
         mail.send(msg)
