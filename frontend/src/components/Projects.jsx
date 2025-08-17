@@ -49,7 +49,16 @@ const projects = [
     tech: ["ReactJS", "Tailwind CSS", "Framer Motion", "Vite", "JavaScript", "Flask", "Python"],
     image: "/images/image.png",
     link: "https://portfolio-website-mu-two-55.vercel.app/",
-  }
+  },
+  {
+  title: "Student Performance Predictor",
+  description:
+    "An interactive ML web app that predicts student performance (Pass/Fail) using Streamlit and Scikit-learn. Users can input study hours, attendance, and extracurricular activities to get instant predictions.",
+  tech: ["Python", "Streamlit", "Scikit-learn", "Pandas", "Machine Learning"],
+  image: "/images/student-predictor.png", 
+  link: "https://student-performance-predictor-vpbuemioppgc99eimoj3zu.streamlit.app/", 
+}
+
 
 ];
 
