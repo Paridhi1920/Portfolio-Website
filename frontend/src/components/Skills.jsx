@@ -93,9 +93,17 @@ const Skills = () => {
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={cardVariants}
-                  className="flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white px-4 py-6 rounded-lg shadow hover:shadow-lg transition duration-300 font-semibold hover:text-accent hover:scale-105"
+                  className="flex flex-col items-center justify-center 
+                  bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white 
+                  px-4 py-6 rounded-lg shadow transition duration-300 
+                  font-semibold cursor-pointer 
+                  hover:border hover:border-accent 
+                  hover:shadow-lg hover:shadow-accent/40 
+                  hover:text-accent hover:scale-105"
                 >
-                  <div className="text-3xl mb-2">{skill.icon}</div>
+                  <div className="text-3xl mb-2 transition-colors duration-300">
+                    {skill.icon}
+                  </div>
                   <div>{skill.name}</div>
                 </motion.div>
               ))}
