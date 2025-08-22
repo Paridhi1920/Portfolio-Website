@@ -26,7 +26,11 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col md:flex-row items-center justify-center px-4 md:px-20 bg-gradient-to-br from-[#0F172A] to-[#1E293B] text-white transition"
+      className="
+        min-h-screen flex flex-col md:flex-row items-center justify-center px-4 md:px-20 
+        bg-gradient-to-br from-gray-100 to-gray-200 text-gray-900 
+        dark:from-[#0F172A] dark:to-[#1E293B] dark:text-white transition
+      "
     >
       <div className="text-center md:text-left md:w-1/2 space-y-6">
         <motion.h1
@@ -35,16 +39,16 @@ const Hero = () => {
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-6xl font-extrabold leading-tight"
         >
-          Hey, I'm <span className="text-sky-400">Paridhi Jain</span>
+          Hey, I'm <span className="text-sky-600 dark:text-sky-400">Paridhi Jain</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="text-lg md:text-xl text-gray-300 max-w-xl"
+          className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-xl"
         >
-          A passionate <span className="text-sky-400">Data Scientist</span> & ML Enthusiast, building elegant solutions with clean design and intelligent models.
+          A passionate <span className="text-sky-600 dark:text-sky-400">Data Scientist</span> & ML Enthusiast, building elegant solutions with clean design and intelligent models.
         </motion.p>
 
         <motion.div
@@ -53,13 +57,13 @@ const Hero = () => {
           transition={{ delay: 0.6 }}
           className="flex justify-center md:justify-start space-x-6 text-2xl"
         >
-          <a href="https://github.com/Paridhi1920" target="_blank" rel="noopener noreferrer" className="hover:text-sky-400">
+          <a href="https://github.com/Paridhi1920" target="_blank" rel="noopener noreferrer" className="hover:text-sky-600 dark:hover:text-sky-400">
             <FaGithub />
           </a>
-          <a href="https://linkedin.com/in/paridhi-jain309" target="_blank" rel="noopener noreferrer" className="hover:text-sky-400">
+          <a href="https://linkedin.com/in/paridhi-jain309" target="_blank" rel="noopener noreferrer" className="hover:text-sky-600 dark:hover:text-sky-400">
             <FaLinkedin />
           </a>
-          <a href="mailto:paridhij30@gmail.com" className="hover:text-sky-400">
+          <a href="mailto:paridhij30@gmail.com" className="hover:text-sky-600 dark:hover:text-sky-400">
             <FaEnvelope />
           </a>
         </motion.div>
@@ -70,7 +74,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9 }}
-            className="bg-sky-500 hover:bg-sky-400 text-white px-6 py-3 rounded-full font-semibold transition shadow-lg"
+            className="bg-sky-600 hover:bg-sky-500 text-white px-6 py-3 rounded-full font-semibold transition shadow-lg"
           >
             See My Work ↓
           </motion.a>
@@ -79,7 +83,11 @@ const Hero = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.1 }}
-            className="bg-transparent border-2 border-sky-500 text-sky-400 hover:bg-sky-500 hover:text-white px-6 py-3 rounded-full font-semibold transition shadow-lg"
+            className="bg-transparent border-2 border-sky-600 text-sky-600 
+                       dark:border-sky-400 dark:text-sky-400 
+                       hover:bg-sky-600 hover:text-white 
+                       dark:hover:bg-sky-400 dark:hover:text-black
+                       px-6 py-3 rounded-full font-semibold transition shadow-lg"
           >
             Download Resume
           </motion.button>
@@ -95,7 +103,7 @@ const Hero = () => {
         <img
           src={heroImage}
           alt="Hero Illustration"
-          className="w-full max-w-sm md:max-w-md drop-shadow-xl"
+          className="w-full max-w-sm md:max-w-md drop-shadow-xl rounded-2xl"
         />
       </motion.div>
     </section>

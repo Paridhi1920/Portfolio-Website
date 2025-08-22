@@ -1,20 +1,22 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
-  FaPython, FaHtml5, FaCss3Alt, FaReact, FaJs, FaDatabase, FaChartBar,
+  FaPython, FaHtml5, FaCss3Alt, FaReact, FaJs, FaDatabase, FaChartBar, FaChartLine
 } from 'react-icons/fa';
 import {
-  SiCplusplus, SiFlask, SiFirebase, SiPandas, SiNumpy,
-  SiScikitlearn, SiTailwindcss, SiTensorflow
+  SiCplusplus, SiC, SiFlask, SiFirebase, SiPandas, SiNumpy,
+  SiScikitlearn, SiTailwindcss, SiTensorflow, SiMysql
 } from 'react-icons/si';
+import { GiArtificialHive } from 'react-icons/gi'; // for DSA
+import { MdStorage } from 'react-icons/md'; // for DBMS
 
 const skillCategories = [
   {
     title: 'Languages',
     skills: [
       { name: 'Python', icon: <FaPython /> },
+      { name: 'C', icon: <SiC /> },
       { name: 'C++', icon: <SiCplusplus /> },
-      { name: 'SQL', icon: <FaDatabase /> },
     ],
   },
   {
@@ -24,7 +26,10 @@ const skillCategories = [
       { name: 'NumPy', icon: <SiNumpy /> },
       { name: 'Scikit-learn', icon: <SiScikitlearn /> },
       { name: 'TensorFlow', icon: <SiTensorflow /> },
+      { name: 'Seaborn', icon: <FaChartLine /> }, // replaced with FaChartLine
+      { name: 'Matplotlib', icon: <FaChartBar /> },
       { name: 'Power BI', icon: <FaChartBar /> },
+      { name: 'SQL', icon: <FaDatabase /> },
     ],
   },
   {
@@ -39,7 +44,14 @@ const skillCategories = [
       { name: 'Flask', icon: <SiFlask /> },
     ],
   },
-  
+  {
+    title: 'CS Fundamentals',
+    skills: [
+      { name: 'DSA', icon: <GiArtificialHive /> },
+      { name: 'DBMS', icon: <MdStorage /> },
+      { name: 'MySQL', icon: <SiMysql /> },
+    ],
+  },
 ];
 
 const cardVariants = {
