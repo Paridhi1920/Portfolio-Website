@@ -7,8 +7,8 @@ import {
   SiCplusplus, SiC, SiFlask, SiFirebase, SiPandas, SiNumpy,
   SiScikitlearn, SiTailwindcss, SiTensorflow, SiMysql
 } from 'react-icons/si';
-import { GiArtificialHive } from 'react-icons/gi'; // for DSA
-import { MdStorage } from 'react-icons/md'; // for DBMS
+import { GiArtificialHive } from 'react-icons/gi'; 
+import { MdStorage } from 'react-icons/md'; 
 
 const skillCategories = [
   {
@@ -26,7 +26,7 @@ const skillCategories = [
       { name: 'NumPy', icon: <SiNumpy /> },
       { name: 'Scikit-learn', icon: <SiScikitlearn /> },
       { name: 'TensorFlow', icon: <SiTensorflow /> },
-      { name: 'Seaborn', icon: <FaChartLine /> }, // replaced with FaChartLine
+      { name: 'Seaborn', icon: <FaChartLine /> }, 
       { name: 'Matplotlib', icon: <FaChartBar /> },
       { name: 'Power BI', icon: <FaChartBar /> },
       { name: 'SQL', icon: <FaDatabase /> },
