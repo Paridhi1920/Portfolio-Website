@@ -1,33 +1,40 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Confetti from 'react-confetti';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const response = await fetch('https://portfolio-s9hg.onrender.com/send-message', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    });
 
-    if (response.ok) {
-      setSubmitted(true);
-      setFormData({ name: '', email: '', message: '' });
-
-      // Show confetti for a short time
-      setShowConfetti(true);
-      setTimeout(() => setShowConfetti(false), 3000);
-
-      // Reset back to form after animation
-      setTimeout(() => setSubmitted(false), 4000);
-    } else {
-      alert('Something went wrong!');
-    }
+    emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      {
+        user_name: formData.name,
+        user_email: formData.email,
+        message: formData.message,
+      },
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    )
+    .then(
+      (result) => {
+        console.log('Email sent:', result.text);
+        setSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+        setShowConfetti(true);
+        setTimeout(() => setShowConfetti(false), 3000);
+        setTimeout(() => setSubmitted(false), 4000);
+      },
+      (error) => {
+        console.error('Email error:', error.text);
+        alert('Something went wrong!');
+      }
+    );
   };
 
   return (
@@ -45,7 +52,6 @@ const Contact = () => {
           Contact Me
         </motion.h2>
 
-        {/* Confetti burst */}
         {showConfetti && <Confetti recycle={false} numberOfPieces={200} />}
 
         <AnimatePresence>
@@ -57,7 +63,6 @@ const Contact = () => {
               exit={{ opacity: 0 }}
               className="flex flex-col items-center justify-center space-y-4"
             >
-              {/* Flying paper plane animation */}
               <motion.div
                 initial={{ y: 50, x: -100, rotate: -45, opacity: 0 }}
                 animate={{
