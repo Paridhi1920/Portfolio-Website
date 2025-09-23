@@ -12,18 +12,18 @@ const Contact = () => {
     e.preventDefault();
 
     emailjs.send(
-      "service_9pun0a2",
-      "template_5v8q0h4",
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
       {
         user_name: formData.name,
         user_email: formData.email,
         message: formData.message,
       },
-      "HhE5935lFGXElMPzD"
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
     )
     .then(
       (result) => {
-        console.log('Email sent:', result.text);
+        console.log('✅ Email sent:', result.text);
         setSubmitted(true);
         setFormData({ name: '', email: '', message: '' });
         setShowConfetti(true);
@@ -31,8 +31,8 @@ const Contact = () => {
         setTimeout(() => setSubmitted(false), 4000);
       },
       (error) => {
-        console.error('Email error:', error.text);
-        alert('Something went wrong!');
+        console.error('❌ Email error:', error); // show full error
+        alert('Something went wrong! Check console for details.');
       }
     );
   };
