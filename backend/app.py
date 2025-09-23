@@ -26,9 +26,12 @@ def home():
 def send_message():
     try:
         data = request.get_json()
-        name = data['name']
-        sender_email = data['email']
-        message_body = data['message']
+        name = data.get('name')
+        sender_email = data.get('email')
+        message_body = data.get('message')
+
+        if not name or not sender_email or not message_body:
+            return jsonify({'error': 'Missing name, email or message'}), 400
 
         msg = Message(
             subject=f"Portfolio Contact: {name}",
@@ -43,7 +46,9 @@ def send_message():
         return jsonify({'message': 'Message sent successfully!'}), 200
 
     except Exception as e:
+        import traceback
         print("❌ Email failed:", e)
+        traceback.print_exc()  # prints full error stack in Render logs
         return jsonify({'error': str(e)}), 500
 
 @app.route('/download-resume', methods=['GET'])
