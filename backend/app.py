@@ -10,46 +10,9 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app)
 
-# Email config
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = os.getenv("MAIL_USERNAME")
-app.config['MAIL_PASSWORD'] = os.getenv("MAIL_PASSWORD")
-mail = Mail(app)
-
 @app.route('/')
 def home():
     return {"message": "Backend is running"}
-
-@app.route('/send-message', methods=['POST'])
-def send_message():
-    try:
-        data = request.get_json()
-        name = data.get('name')
-        sender_email = data.get('email')
-        message_body = data.get('message')
-
-        if not name or not sender_email or not message_body:
-            return jsonify({'error': 'Missing name, email or message'}), 400
-
-        msg = Message(
-            subject=f"Portfolio Contact: {name}",
-            sender=app.config['MAIL_USERNAME'],  
-            recipients=[app.config['MAIL_USERNAME']],
-            body=f"Name: {name}\nEmail: {sender_email}\n\nMessage:\n{message_body}",
-            reply_to=sender_email  
-        )
-
-        mail.send(msg)
-        print("✅ Email sent!")
-        return jsonify({'message': 'Message sent successfully!'}), 200
-
-    except Exception as e:
-        import traceback
-        print("❌ Email failed:", e)
-        traceback.print_exc()  # prints full error stack in Render logs
-        return jsonify({'error': str(e)}), 500
 
 @app.route('/download-resume', methods=['GET'])
 def download_resume():
